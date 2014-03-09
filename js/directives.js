@@ -85,7 +85,7 @@ angular.module('timePicker.directives', [])
                     else
                         $(element).find(".time-value .minutes").html(minute);
 
-                    $("#hdTime").val(hour + ":" + ((minute > 10) ? minute : "0" + minute) + "" + period);
+                    $("#hdTime").val(hour + ":" + ((minute >= 10) ? minute : "0" + minute) + "" + period);
                 }
 
                 scope.controlHandler = function(c, event) {
