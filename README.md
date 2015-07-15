@@ -19,7 +19,7 @@ In your app's directives.js file, add the timepickerDirective module.
 angular.module('myApp', ['timepickerDirective']);
 ```
 
-Last, simply add a `<popup-directive>` element you reference from an event on an element.
+Last, simply add a `<timepicker-directive>` element.
 ```html
 <input type="text" ng-model="mytime">
 <timepicker-directive input-model="mytime"></timepicker-directive>
