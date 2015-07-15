@@ -1,30 +1,33 @@
-# Time-Picker
-
-Time-Picker is an Angular directive that creates a time picker UI for a popup input.
+# Timepicker Directive
+A directive that adds a timepicker control.
 
 **Requirements**
 
-* [AngularJS (1.2+)](http://angularjs.org/)
-* [JQuery (1.11+)](http://jquery.com/)
-* [bklik/popup](https://github.com/bklik/popup/)
+* [AngularJS](http://angularjs.org/)
+* [bklik/styleSheetFactory](https://github.com/bklik/styleSheetFactory)
+* [bklik/popupDirective (optional)](https://github.com/bklik/popup/)
 
 ### Installation
 
-Link to time-picker's CSS and Javascript files.
+Link to popup's CSS and Javascript files.
 ```html
-<link rel="stylesheet" href="time-picker/css/password-generator.css"/>
-<script src="time-picker/js/directives.js"></script>
+<script src="timepickerDirective/timepickerDirective.js"></script>
 ```
 
-In your app's directives.js file, add the timePicker.directives module.
+In your app's directives.js file, add the timepickerDirective module.
 ```javascript
-angular.module('myApp.directives', ['popup.directives', 'timePicker.directives']);
+angular.module('myApp', ['timepickerDirective']);
 ```
 
-Last, simply add a _time_ attribute to an `<input>`.
+Last, simply add a `<popup-directive>` element you reference from an event on an element.
 ```html
-<input type="text" popup time/>
+<input type="text" ng-model="mytime">
+<timepicker-directive input-model="mytime"></timepicker-directive>
 ```
 
-### Example
-http://www.brentonklik.com/popup
+Or, with popupDirective:
+```html
+<input type="text" ng-focus="popup01.show($event)" ng-model="mytime">
+<popup-directive api="popup01">
+    <timepicker-directive close-callback="popup01.hide" input-model="mytime"></timepicker-directive>
+</popup-directive>
