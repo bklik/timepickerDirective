@@ -253,9 +253,18 @@ angular.module('timepickerDirective', ['styleSheetFactory'])
                 'width: 200px;'
             ,1);
 
-            var hour = 12;
-            var minute = 0;
-            var period = "am";
+            var hour = new Date().getHours();
+            var period = (hour < 12) ? "am" : "pm";
+
+            if(hour == 0)
+                hour = 12;
+            else if(hour <= 12)
+                hour = hour;
+            else
+                hour = hour-12;
+            
+            var minute = Math.round(new Date().getMinutes() / 5) * 5;
+
             var control = "hours";
 
             var clearSelections = function() {
